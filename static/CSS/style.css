@@ -1,0 +1,78 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+	padding: 20px 40px;
+	margin: 0;
+	font-family: 'Noto Sans', sans-serif;
+}
+
+footer {
+	text-align: center;
+	font-size: 0.75rem;
+	font-style: italic;
+	padding: 2rem 0;
+	opacity: 0.5;
+}
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	margin-right: -15px;
+	margin-left: -15px;
+}
+.row .row {
+	margin-right: 0;
+	margin-left: 0;
+}
+.row > * {
+	padding: 15px;
+	flex: 1 0 0;
+	box-sizing: border-box;
+}
+.col-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
+.col-2 { flex: 0 0 16.666667%; max-width: 16.666667%; }
+.col-3 { flex: 0 0 25%; max-width: 25%; }
+.col-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+.col-5 { flex: 0 0 41.666667%; max-width: 41.666667%; }
+.col-6 { flex: 0 0 50%; max-width: 50%; }
+.col-7 { flex: 0 0 58.333333%; max-width: 58.333333%; }
+.col-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+.col-9 { flex: 0 0 75%; max-width: 75%; }
+.col-10 { flex: 0 0 83.333333%; max-width: 83.333333%; }
+.col-11 { flex: 0 0 91.666667%; max-width: 91.666667%; }
+.col-12 { flex: 0 0 100%; max-width: 100%; }
+/* ==================== Buttons ==================== */
+.button1 {
+	display: inline-block;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: 400;
+	padding: 0.5rem 1rem;
+	border: 1px solid;
+	border-radius: 5px;
+	opacity: 0.8;
+	text-decoration: none;
+	margin-bottom: 0.2rem;
+}
+.button-small {
+	font-size: 0.77rem;
+	padding: 0.25rem 0.5rem;
+}
+
+
+
+/* ==================== Index Page ==================== */
+.socials {
+	height: auto;
+	width: auto;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 0.85rem;
+}
+.mail {
+	width: auto-adjust;
+	font-size: 0.87rem;
+	height: auto-adjust;
+	font-weight: 400;
+}
