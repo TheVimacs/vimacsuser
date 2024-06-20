@@ -1,18 +1,45 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* ==================== General ==================== */
+* {
+	box-sizing: border-box;
+}
+
 body {
 	padding: 20px 40px;
 	margin: 0;
 	font-family: 'Noto Sans', sans-serif;
 }
-
 footer {
 	text-align: center;
 	font-size: 0.75rem;
 	font-style: italic;
 	padding: 2rem 0;
 	opacity: 0.5;
+}
+.display {
+	font-size: 3rem;
+	font-weight: 500;
+	line-height: 1.2;
+	margin-top: 0;
+	margin-bottom: 0.5rem;
+	font-weight: 400;
+}
+.texto {
+    font-size: 1.25rem;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+	font-weight: 370;
+	opacity: 0.8;
+}
+.container {
+    width: 100%;
+    padding-right: 25px;
+    padding-left: 25px;
+    margin-right: auto;
+    margin-left: auto;
 }
 .row {
 	display: flex;
@@ -41,6 +68,86 @@ footer {
 .col-10 { flex: 0 0 83.333333%; max-width: 83.333333%; }
 .col-11 { flex: 0 0 91.666667%; max-width: 91.666667%; }
 .col-12 { flex: 0 0 100%; max-width: 100%; }
+
+/* ============== Navbar ======================= */
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000;
+	background-color: #fff;
+	padding-top: 77px;
+}
+.main {
+	padding-top: 80px;
+}
+.vintellx {
+    font-size: 1.5rem;
+    font-weight: 500;
+	text-decoration: none;
+	font-style: bold;
+}
+.vintellx a, .vintellx a:visited {
+	color: inherit;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+	margin-right: 30px;
+	margin-left: 30px;
+	border-bottom: 1px solid #000;
+}
+.navMiddle {
+	display: flex;
+	gap: 1rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.navRight {
+    display: flex;
+    align-items: center;
+}
+.navMenu {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+	flex-direction: row;
+	position: relative;
+	z-index: 1000;
+}
+.navItem {
+	font-size: 1.15rem;
+	font-weight: 250;
+}
+.navItem a {
+    text-decoration: none;
+    color: inherit;
+}
+.active {
+	font-weight: 400;
+}
+.navItem a:hover {
+	font-weight: 400;
+}
+.menuIcon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.menuIconLine {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    margin: 4px 0;
+}
+
 /* ==================== Buttons ==================== */
 .button1 {
 	display: inline-block;
@@ -59,8 +166,6 @@ footer {
 	padding: 0.25rem 0.5rem;
 }
 
-
-
 /* ==================== Index Page ==================== */
 .socials {
 	height: auto;
@@ -75,4 +180,126 @@ footer {
 	font-size: 0.87rem;
 	height: auto-adjust;
 	font-weight: 400;
+}
+
+
+
+/* ==================== Responsive ==================== */
+@media (max-width: 1200px) {
+	.display {
+		font-size: 3rem;
+	}
+	.mail {
+		font-size: 0.72rem;
+	}
+}
+
+@media (max-width: 992px) {
+    .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+	.display {
+		font-size: 3rem;
+	}
+}
+
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+    .row > * {
+        width: 100%;
+        flex: none;
+    }
+    .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+	.display {
+		font-size: 2.4rem;
+	}
+	.texto {
+		font-size: 1rem;
+	}
+	header {
+		padding-right: 10px;
+		padding-left: 10px;
+		padding-top: 25px;
+	}
+	.main {
+		padding-top: 30px;
+	}
+	.container {
+		padding-right: 10px;
+		padding-left: 10px;
+	}
+	.navMenu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+		margin-top: 57px;
+        top: 0; 
+        left: 40px;
+		right: 40px;
+		background-color: #fff;
+        text-align: left;
+        padding: 0.5rem 1px;
+		transition: max-height 0.3s ease-in-out;
+		border-bottom: 1px solid #000;
+    }
+
+    .navMenu.active {
+        display: flex !important;
+		transition: max-height 0.5s scroll-behavior;
+    }
+	.navMenu.close {
+		display: none;
+		transition: max-height 0.5s scroll-behavior;
+	}
+
+    .menuIcon {
+        display: block;
+        cursor: pointer;
+    }
+
+    .menuIcon.active .menuIconLine:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menuIcon.active .menuIconLine:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+		transition: transform 0.3s;
+    }
+
+    .menuIcon.active .menuIconLine:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+		transition: transform 0.3s;
+    }
+	.menuIcon.close .menuIconLine:nth-child(1) {
+		transform: translateY(0px) rotate(0deg);
+		transition: transform 0.3s;
+	}
+
+	.menuIcon.close .menuIconLine:nth-child(3) {
+		transform: translateY(0px) rotate(0deg);
+		transition: transform 0.3s;
+	}
+	.menuIcon.close .menuIconLine:nth-child(2) {
+		opacity: 1;
+		transition: opacity 0.3s;
+	}
+}
+
+@media (max-width: 576px) {
+    .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+	header {
+		padding-top: 25px;
+	}
+	.main {
+		padding-top: 30px;
+	}
 }
