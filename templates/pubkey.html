@@ -1,21 +1,21 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>VintellX | Vinayak Pandey</title>
-	<link type="text/css" rel="stylesheet" href="static/CSS/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VintellX | Public Key</title>
+    <link type="text/css" rel="stylesheet" href="static/CSS/style.css">
 </head>
 <body>
-	<div class="main">
+    <div class="main" id="main">
         <header>
             <nav class="navbar">
-                <a class="vintellx" href="index">VintellX</a>
+                <a class="vintellx" href="index.html">VintellX</a>
 				<div class="navMiddle">
                     <ul class="navMenu">
-                        <li class="navItem active"><a href="index">About Me</a></li>
+                        <li class="navItem"><a href="index">About Me</a></li>
                         <li class="navItem"><a href="projects">Projects</a></li>
-                        <li class="navItem"><a href="pubkey">Public Key</a></li>
+                        <li class="navItem active"><a href="pubkey">Public Key</a></li>
                         <li class="navItem"><a href="blog">Blog</a></li>
                         <li class="navItem"><a href="spotify">Spotify</a></li>
                     </ul>
@@ -45,42 +45,20 @@
                 </div>
             </nav>
         </header>
-		<br>
+        <br>
 		<div class="container">
+			<h3 class="display"> GPG Public Key </h3>
+			<p class="texto">I usually sign my commits and emails with this key. You can download it from the links below or view it here.</p>
+			<p class="texto gpgtexto"> <a href="static/assets/pubkey/VintellX_pubkey.asc" >[Download asc file]</a> <a href="static/assets/pubkey/VintellX_pubkey.gpg" >[Download gpg file]</a> </p>
 			<div class="row">
-				<div class="col-4">
-					<img src="static/assets/Vin.jpg" alt="Vinayak Pandey" width="200" height="200">
-					<h1 class="display">Vinayak Pandey</h1>
-					<p class="mail">vin {at} vintellx {dot} com</p>
-					<p class="mail">&lt;full name&gt; {dot} 2022 {at} vitbhopal {dot} ac {dot} in</p>
-                    <p class="socials">
-                        <a href="https://github.com/VintellX" class="button1 button-small button-mobile" role="button" aria-pressed="true">GitHub</a>
-                        <a href="https://linkedin.com/in/VintellX" class="button1 button-small button-mobile" role="button" aria-pressed="true">LinkedIn</a>
-                        <a href="https://keybase.io/vinayakpandey" class="button1 button-small button-mobile" role="button" aria-pressed="true">Keybase</a>
-                        <a href="https://www.youtube.com/@VintellX" class="button1 button-small button-mobile" role="button" aria-pressed="true">YouTube</a>
-                        <a href="https://discordapp.com/users/933976831902769192" class="button1 button-small button-mobile" role="button" aria-pressed="true">Discord</a>
-                    </p>
+				<div class="col-5">
+					<embed src="static/assets/pubkey/VintellX_pubkey.txt" type="text/plain" width="100%" height="700">
 				</div>
-				<div class="col-8">
-					<h1 class="display">About Me</h1>
-                    <p class="texto">I am a 3rd year student, pursuing B.Tech in Computer Science and Engineering. I am interested in Artificial Intelligence, Machine Learning, Deep Learning, and Data Science. I am also a Linux Enthusiast.</p>
-					<p class="texto">My interests are:<br>
-						<ol class="texto">
-							<li> Convolutional Neural Networks </li>
-                            <li> Recurrent Neural Networks </li>
-                            <li> Natural Language Processing </li>
-                            <li> Artificial Neural Networks </li>
-                            <li> Reinforcement Learning </li>
-                        </ol>
-					</p>
-				</div>
-			</div>
 		</div>
-	</div>
-	<script src="static/JS/script.js"></script>
-	<footer>
+    </div>
+    <script src="static/JS/script.js"></script>
+    <footer>
         2023 © Vinayak Pandey (<a href="https://github.com/VintellX">VintellX</a>) ; my <a href="https://github.com/VintellX/VintellX.github.io">code</a> is free to use with attributes.
-	</footer>
+    </footer>
 </body>
 </html>
-

@@ -13,6 +13,10 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/pubkey')
+def pubkey():
+    return render_template('pubkey.html')
+
 @app.route('/projects')
 def projects():
     json_data = open('static/assets/projects.json')
