@@ -53,6 +53,14 @@ footer {
 	color: var(--text);
 	font-weight: 400;
 }
+.display1 {
+	color: var(--primary1);
+	font-size: 1.5rem;
+	font-weight: 500;
+	margin-top: 0;
+	margin-left: 0;
+	margin-bottom: 0.5rem;
+}
 .texto {
     font-size: 1.25rem;
     font-weight: 300;
@@ -208,9 +216,31 @@ header {
 	background-color: var(--color1);
 	color: var(--bg-color);
 }
+
+.button2 {
+	display: inline-block;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: 400;
+	padding: 0.5rem 1rem;
+	border: 1px solid var(--color1);
+	border-radius: 50px;
+	opacity: 0.8;
+	color: var(--color1);
+	text-decoration: none;
+	margin-bottom: 0.2rem;
+}
+.btn-color2 {
+	color: var(--primary1);
+	border: 1px solid var(--primary1);
+}
 .button-small {
 	font-size: 0.77rem;
 	padding: 0.25rem 0.5rem;
+}
+.button-medium {
+	font-size: 0.9rem;
+	padding: 0.3rem 0.7rem;
 }
 
 /* ==================== Index Page ==================== */
@@ -228,6 +258,37 @@ header {
 	height: auto-adjust;
 	color: var(--text);
 	font-weight: 310;
+}
+
+/* ============== Project Page ======================= */
+.project-title {
+	font-size: 1.3rem;
+	font-weight: 350;
+	margin-bottom: 0.2rem;
+	margin-top: 0;
+	color: var(--text);
+}
+.proj-li {
+	font-weight: bold;
+	color: var(--text);
+	font-size: 1.3rem
+}
+.btn-ul {
+	list-style-type: none;
+	padding: 0;
+}
+.project-desc {
+	font-size: 1.25rem;
+	font-weight: 300;
+	margin-bottom: 0.2rem;
+	color: var(--text);
+}
+.project-links {
+	font-size: 1.1rem;
+	font-weight: 250;
+	line-height: 1.5;
+	margin-bottom: 1rem;
+	color: var(--text);
 }
 
 /* ============== Spot on fi ======================= */

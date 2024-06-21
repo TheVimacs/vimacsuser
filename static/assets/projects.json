@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Gesture2Text: An image processing approach using LSTM and CNN",
+    "description": "Me and my teammates developed LSTM and CNN models to convert American Sign Language gestures to text, comparing their performance to highlight LSTMs' strength with small datasets and CNNs' with larger ones. This work is part of our book chapter on image processing.",
+    "links": {
+      "web": null,
+      "github": "https://github.com/VintellX/Gesture2Text",
+	  "youtube": null
+    }
+  },
+  {
+    "title": "vintellx-website",
+    "description": "This is my personal website where you can check out my blog posts, go throgh my projects, and see what I'm jamming to on Spotify. It’s a place to explore my work, read my thoughts, and connect with me.",
+    "links": {
+      "web": "https://vintellx.com",
+      "github": "https://github.com/VintellX/vintellx-website",
+	  "youtube": null
+    }
+  }
+]

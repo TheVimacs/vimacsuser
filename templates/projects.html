@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>VintellX | Spotify</title>
+    <title>VintellX | Projects</title>
     <link type="text/css" rel="stylesheet" href="static/CSS/style.css">
 </head>
 <body>
@@ -14,10 +14,10 @@
 				<div class="navMiddle">
                     <ul class="navMenu">
                         <li class="navItem"><a href="index">About Me</a></li>
-                        <li class="navItem"><a href="projects">Projects</a></li>
+                        <li class="navItem active"><a href="projects">Projects</a></li>
                         <li class="navItem"><a href="pubkey">Pub Key</a></li>
                         <li class="navItem"><a href="blog">Blog</a></li>
-                        <li class="navItem active"><a href="spotify">Spotify</a></li>
+                        <li class="navItem"><a href="spotify">Spotify</a></li>
                     </ul>
 				</div>
                 <div class="navRight">
@@ -46,25 +46,48 @@
             </nav>
         </header>
         <br>
-        <div class="container">
-				<h1 class="display">Spotify Playing</h1>
-				<p class="texto"> I listen to lots of music and I like to share it with others :)</p>
-				<br>
-				<div class="row">
-					<div class="col-2 hideonmobile">
-					</div>
-					<div class="col-4">
-						{% autoescape false %}
-						{{ xdimage }}
-						{% endautoescape %}
-					</div>
-					<div class="col-5">
-						{% autoescape false %}
-						{{ texto }}
-						{% endautoescape %}
-					</div>
+		<div class="container">
+			<h3 class="display"> My Projects </h3>
+			<div class="row">
+				<div class="col-7">
+					<ol>
+						{% for project in projects %}
+						<li class="proj-li"> <p class="project-title"><b> {{ project.title }} </b></p>
+							<p class="project-desc"><i> {{ project.description }} </i></p>
+							<p class="project-links">
+								{% if project.links.youtube %}
+								[<a href="{{ project.links.youtube }}">Youtube</a>]
+								{% else %}
+								[<s>Youtube</s>]
+								{% endif %}
+								{% if project.links.web %}
+								[<a href="{{ project.links.web }}">Web</a>]
+								{% else %}
+								[<s>Web</s>]
+								{% endif %}
+								{% if project.links.github %}
+								[<a href="{{ project.links.github }}">Github</a>]
+								{% else %}
+								[<s>Github</s>]
+								{% endif %}
+							</p>
+						</li>
+						{% endfor %}
+					</ol>
 				</div>
-        </div>
+				<div class="col-2 hideonmobile">
+				</div>
+				<div class="col-3">
+					<h4 class="display1"> Total {{ total }} links present </h4>
+					<p>
+						<ul class='btn-ul'>
+							<li class="button2 button-medium button-mobile btn-color2"> YouTube {{ youtube }} </li>
+							<li class="button2 button-medium button-mobile btn-color2"> Web {{ web }} </li>
+							<li class="button2 button-medium button-mobile btn-color2"> Github {{ github }} </li>
+						</ul>
+					</p>
+			</div>
+		</div>
     </div>
     <script src="static/JS/script.js"></script>
     <footer>

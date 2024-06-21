@@ -3,17 +3,38 @@
 
 from flask import Flask, render_template, request, redirect, url_for, flash, session, Blueprint
 from xdspotify import Vinify
-
+import json
 
 app = Flask(__name__)
 
 @app.route('/')
+@app.route('/index')
+@app.route('/about')
 def index():
     return render_template('index.html')
 
-@app.route('/index')
-def index2():
-    return render_template('index.html')
+@app.route('/projects')
+def projects():
+    json_data = open('static/assets/projects.json')
+    data = json.load(json_data)
+    json_data.close()
+    total = 0
+    github = 0
+    web = 0
+    youtube = 0
+
+    for project in data:
+        if 'links' in project:
+            if project['links'].get('web'):
+                web += 1
+                total += 1
+            if project['links'].get('github'):
+                github += 1
+                total += 1
+            if project['links'].get('youtube'):
+                youtube += 1
+                total+= 1
+    return render_template('projects.html', projects=data, total=total, github=github, web=web, youtube=youtube)
 
 @app.route('/spotify')
 def spotify():
