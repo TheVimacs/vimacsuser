@@ -230,6 +230,37 @@ header {
 	font-weight: 310;
 }
 
+/* ============== Spot on fi ======================= */
+.song-title {
+	font-weight: 500;
+	margin-bottom: 0.5rem;
+	margin-top: 0;
+	color: var(--text);
+	font-size:2.3rem;
+}
+.song-artist {
+	margin-bottom: 0.5rem;
+	margin-top: 0;
+	color: var(--text);
+	font-size: 2rem;
+	font-weight: 400;
+}
+.song-ln {
+	margin-bottom: 0.5rem;
+	margin-top: 0;
+	color: var(--text);
+	font-size: 1.7rem;
+	font-weight: 400;
+}
+.nosong	{
+	font-size: 2.3rem;
+	font-weight: 400;
+	margin-top: 0;
+	margin-bottom: 0.5rem;
+	color: var(--text);
+	font-weight: 400;
+}
+
 
 
 /* ==================== Responsive ==================== */
@@ -340,6 +371,18 @@ header {
 	.menuIcon.close .menuIconLine:nth-child(2) {
 		opacity: 1;
 		transition: opacity 0.3s;
+	}
+	.song-title {
+		font-size: 1.9rem;
+	}
+	.song-artist {
+		font-size: 1.7rem;
+	}
+	.song-ln {
+		font-size: 1.25rem;
+	}
+	.nosong {
+		font-size: 2rem;
 	}
 }
 
