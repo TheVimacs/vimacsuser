@@ -1,20 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+/* :root { */
+/*     --bg-color: #fff; */
+/*     --text: #000; */
+/* 	--color1: #000; */
+/* 	--primary: #0000ff; */
+/* 	--primary1: #038CFC; */
+/* 	--secondary: #018786; */
+/* } */
+
+/* [data-theme="dark"] { */
+/*     --bg-color: #121212; */
+/*     --text: #fff; */
+/* 	--color1: #fff; */
+/* 	--primary: #BB86FC; */
+/* 	--primary1: #BB86FC; */
+/* 	--secondary: #03DAC6; */
+/* } */
 :root {
     --bg-color: #fff;
     --text: #000;
 	--color1: #000;
-	--primary: #0000ff;
-	--primary1: #1F5CFF;
-	--secondary: #018786;
+	--primary: #000;
+	--primary1: #000;
+	--secondary: #000;
 }
 
 [data-theme="dark"] {
     --bg-color: #121212;
     --text: #fff;
 	--color1: #fff;
-	--primary: #BB86FC;
-	--primary1: #BB86FC;
-	--secondary: #03DAC6;
+	--primary: #fff;
+	--primary1: #fff;
+	--secondary: #fff;
 }
 
 /* ==================== General ==================== */
@@ -36,13 +53,27 @@ body {
 a {
 	color: var(--primary);
 }
+.cool-a a{
+	color: var(--text);
+	text-decoration: underline;
+	text-decoration-style: dotted;
+	text-underline-offset: 4px;
+	text-decoration-thickness: 2px;
+}
+.cool-a a:hover {
+	opacity: 1;
+	font-weight: 700;
+}
 footer {
 	padding: 2rem 0;
     text-align: center;
     font-style: italic;
     font-size: 0.75em;
     color: var(--text);
-	opacity: 0.5;
+	opacity: 0.6;
+}
+.left-align {
+	align-items: left;
 }
 .display {
 	font-size: 3rem;
@@ -61,9 +92,16 @@ footer {
 	margin-left: 0;
 	margin-bottom: 0.5rem;
 }
+.display2 {
+	color: var(--secondary);
+	font-size: 1.5rem;
+	font-weight: 500;
+	margin-top: 0;
+	margin-left: 0;
+	margin-bottom: 0.5rem;
+}
 .texto {
     font-size: 1.25rem;
-    font-weight: 300;
     line-height: 1.5;
     margin-bottom: 1rem;
 	color: var(--text);
@@ -91,6 +129,10 @@ footer {
 	padding: 15px;
 	flex: 1 0 0;
 	box-sizing: border-box;
+}
+.leftRule{
+	border-left: 4px solid var(--text);
+	padding-left: 10px;
 }
 .col-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
 .col-2 { flex: 0 0 16.666667%; max-width: 16.666667%; }
@@ -199,6 +241,9 @@ header {
 }
 
 /* ==================== Buttons ==================== */
+.inlineblock {
+	display: inline-block;
+}
 .button1 {
 	display: inline-block;
 	text-align: center;
@@ -229,6 +274,36 @@ header {
 	color: var(--color1);
 	text-decoration: none;
 	margin-bottom: 0.2rem;
+}
+.button3 {
+	display: inline-block;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: 400;
+	padding: 0.5rem 1rem;
+	border: 1px solid var(--secondary);
+	border-radius: 50px;
+	opacity: 0.8;
+	color: var(--secondary);
+	text-decoration: none;
+	margin-bottom: 0.2rem;
+}
+.button4 {
+	display: inline-block;
+	text-align: center;
+	font-size: 1rem;
+	font-weight: 400;
+	padding: 0.5rem 1rem;
+	border: 1px solid var(--secondary);
+	border-radius: 50px;
+	opacity: 0.8;
+	color: var(--secondary);
+	text-decoration: none;
+	margin-bottom: 0.2rem;
+}
+.button3:hover {
+	background-color: var(--secondary);
+	color: var(--bg-color);
 }
 .btn-color2 {
 	color: var(--primary1);
@@ -262,16 +337,17 @@ header {
 
 /* ============== Project Page ======================= */
 .project-title {
-	font-size: 1.3rem;
-	font-weight: 350;
+	font-size: 1.5rem;
+	font-weight: 550;
 	margin-bottom: 0.2rem;
 	margin-top: 0;
 	color: var(--text);
+	opacity:0.9;
 }
 .proj-li {
-	font-weight: bold;
+	font-weight: 500;
 	color: var(--text);
-	font-size: 1.3rem
+	font-size: 1.4rem
 }
 .btn-ul {
 	list-style-type: none;
@@ -282,15 +358,122 @@ header {
 	font-weight: 300;
 	margin-bottom: 0.2rem;
 	color: var(--text);
+	margin-top: 0.2rem;
 }
 .project-links {
 	font-size: 1.1rem;
 	font-weight: 250;
 	line-height: 1.5;
+	margin-top: 0.3rem;
 	margin-bottom: 1rem;
 	color: var(--text);
 }
 
+/* ============== Blog Page ======================= */
+.blog-title {
+	font-size: 1.5rem;
+	font-weight: 550;
+	margin-bottom: 0.2rem;
+	margin-top: 0;
+	color: var(--primary);
+	opacity: 0.9;
+}
+.blog-li {
+	font-weight: 500;
+	color: var(--primary);
+	font-size: 1.4rem;
+	/* opacity: 0.8; */
+}
+.blog-desc {
+	font-size: 1.25rem;
+	margin-top: 0;
+	font-weight: 300;
+	margin-bottom: 0;
+	color: var(--text);
+}
+.blog-info {
+	font-size: 1rem;
+	font-weight: 250;
+	color: var(--text);
+	margin-top: 0.4rem;
+	margin-bottom: 0rem;
+}
+.blog-tags{
+	margin-top: -1rem;
+}
+.dispsmall {
+	font-size: 1.7rem;
+}
+.blogInfo{
+	font-size:0.7rem;
+	margin-bottom:0rem;
+	color: var(--text);
+	opacity: 0.5;
+}
+.blogTitle {
+	font-size: 2.2rem;
+	font-weight: 500;
+	line-height: 1.2;
+	margin-top: 0;
+	margin-bottom: 0.5rem;
+	color: var(--text);
+	font-weight: 400;
+}
+.subHead-1 {
+	font-size: 1.8rem;
+	font-weight: 500;
+	line-height: 1.2;
+	margin-top: 0;
+	margin-bottom: 0.5rem;
+	color: var(--text);
+	font-weight: 400;
+	opacity: 1;
+}
+.subHead-2 {
+	font-size: 1.6rem;
+	font-weight: 500;
+	line-height: 1.2;
+	margin-top: 0;
+	margin-bottom: 0.5rem;
+	color: var(--text);
+	font-weight: 400;
+	opacity: 1;
+}
+.subHead-3 {
+	font-size: 1.4rem;
+	font-weight: 500;
+	line-height: 1.2;
+	margin-top: 0;
+	margin-bottom: 0.5rem;
+	color: var(--text);
+	font-weight: 400;
+	opacity: 1;
+}
+#toc {
+    list-style-type: none;
+    padding-left: 15px;
+}
+.toc-listo {
+    display: block;
+    list-style-type: none;
+    margin-left: 0px;
+}
+.toc-itemo {
+    cursor: pointer;
+    position: relative;
+    padding-left: 20px;
+}
+.toc-itemo.tocSick > .toc-listo {
+    display: block;
+}
+.tocToggler {
+    cursor: pointer;
+    margin-right: 5px;
+    position: absolute;
+    left: 0;
+    top: 0;
+	color: var(--text);
+}
 /* ============== Spot on fi ======================= */
 .song-title {
 	font-weight: 500;
@@ -329,6 +512,9 @@ header {
 	.display {
 		font-size: 3rem;
 	}
+	.dispsmall {
+		font-size: 2rem;
+	}
 	.mail {
 		font-size: 0.72rem;
 	}
@@ -341,6 +527,9 @@ header {
     }
 	.display {
 		font-size: 3rem;
+	}
+	.dispsmall {
+		font-size: 1.7rem;
 	}
 }
 
@@ -359,8 +548,23 @@ header {
 	.display {
 		font-size: 2.4rem;
 	}
+	.dispsmall {
+		font-size: 1.5rem;
+	}
 	.texto {
 		font-size: 1rem;
+	}
+	.blogTitle{
+		font-size: 1.6rem;
+	}
+	.blogSubHead-1 {
+		font-size: 1.5rem;
+	}
+	.blogSubHead-2 {
+		font-size: 1.3rem;
+	}
+	.blogSubHead-3 {
+		font-size: 1.1rem;
 	}
 	header {
 		padding-right: 10px;
@@ -373,6 +577,9 @@ header {
 	.container {
 		padding-right: 10px;
 		padding-left: 10px;
+	}
+	.hideonmobile {
+		display: none;
 	}
 	.button-mobile {
 		font-size: 0.69rem;
@@ -457,5 +664,20 @@ header {
 	}
 	.main {
 		padding-top: 30px;
+	}
+	.gpgtexto {
+		font-size: 0.9rem;
+	}
+	.blog-title {
+		font-size: 1.2rem;
+	}
+	.blog-li {
+		font-size: 1.2rem;
+	}
+	.blog-desc {
+		font-size: 1.1rem;
+	}
+	.bog-info {
+		font-size: 0.9rem;
 	}
 }

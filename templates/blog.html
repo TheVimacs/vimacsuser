@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>VintellX | Spotify</title>
+    <title>VintellX | Blog</title>
     <link type="text/css" rel="stylesheet" href="static/CSS/style.css">
 </head>
 <body>
@@ -16,8 +16,8 @@
                         <li class="navItem"><a href="{{ url_for('index') }}">About Me</a></li>
                         <li class="navItem"><a href="{{ url_for('projects') }}">Projects</a></li>
                         <li class="navItem"><a href="{{ url_for('pubkey') }}">Pub Key</a></li>
-                        <li class="navItem"><a href="{{ url_for('blog') }}">Blog</a></li>
-                        <li class="navItem active"><a href="{{ url_for('spotify') }}">Spotify</a></li>
+                        <li class="navItem active"><a href="{{ url_for('blog') }}">Blog</a></li>
+                        <li class="navItem"><a href="{{ url_for('spotify') }}">Spotify</a></li>
                     </ul>
                 </div>
                 <div class="navRight">
@@ -45,30 +45,45 @@
                 </div>
             </nav>
         </header>
-        <br>
-        <div class="container">
-				<h1 class="display">Spotify Playing</h1>
-				<p class="texto"> I listen to lots of music and I like to share it with others :)</p>
-				<br>
-				<div class="row cool-a">
-					<div class="col-2 hideonmobile">
-					</div>
-					<div class="col-4">
-						{% autoescape false %}
-						{{ xdimage }}
-						{% endautoescape %}
-					</div>
-					<div class="col-5">
-						{% autoescape false %}
-						{{ texto }}
-						{% endautoescape %}
-					</div>
+		<br>
+		<div class="container">
+			<h3 class="display"> Personal Blog </h3>
+			<div class="row">
+				<div class="col-8">
+					<ol>
+						{% for blog in blogs %}
+						<li class="blog-li"><p class="blog-title cool-a"><a href="{{ url_for('blogo', blog_id=blog.id) }}"> {{ blog.title }} </a></p>
+							<p class="blog-desc"><i> {{ blog.description }} </i></p>
+							<p class="blog-info"> {{ blog.info.date }}; {{ blog.info.readtime }} </p>
+							<p class="blog-tags">
+								<ul class="btn-ul">
+									{% for tagItem in blog.info.tags %}
+						<li class="inlineblock"><a class="button3 button-small button-mobile" href="{{ url_for('blogTag', tag=tagItem) }}" class="btn">{{ tagItem }}</a></li>
+									{% endfor %}
+								</ul>
+							</p>
+						</li>
+						{% endfor %}
+					</ol>
 				</div>
-        </div>
-    </div>
-    <script src="static/JS/script.js"></script>
-    <footer class="cool-a">
+				<div class="col-1 hideonmobile">
+				</div>
+				<div class="col-3">
+				  <div class="leftRule">
+					<h4 class="display2">#Tags</h4>
+					<ul class="btn-ul">
+						{% for tagItem, count in tags.items() %}
+						<li class="inlineblock"><a class="button3 button-small button-mobile" href="{{ url_for('blogTag', tag=tagItem) }}">{{ tagItem }} {{ count }}</a></li>
+						{% endfor %}
+					</ul>
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="static/JS/script.js"></script>
+	<footer class="cool-a">
         2023 © Vinayak Pandey (<a href="https://github.com/VintellX">VintellX</a>) ; my <a href="https://github.com/VintellX/VintellX.github.io">code</a> is free to use with attributes.
-    </footer>
+	</footer>
 </body>
 </html>

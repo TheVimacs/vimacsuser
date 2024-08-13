@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>VintellX | Spotify</title>
-    <link type="text/css" rel="stylesheet" href="static/CSS/style.css">
+    <title>VintellX | Blog</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/style.css') }}">
 </head>
 <body>
     <div class="main" id="main">
@@ -16,8 +16,8 @@
                         <li class="navItem"><a href="{{ url_for('index') }}">About Me</a></li>
                         <li class="navItem"><a href="{{ url_for('projects') }}">Projects</a></li>
                         <li class="navItem"><a href="{{ url_for('pubkey') }}">Pub Key</a></li>
-                        <li class="navItem"><a href="{{ url_for('blog') }}">Blog</a></li>
-                        <li class="navItem active"><a href="{{ url_for('spotify') }}">Spotify</a></li>
+                        <li class="navItem active"><a href="{{ url_for('blog') }}">Blog</a></li>
+                        <li class="navItem"><a href="{{ url_for('spotify') }}">Spotify</a></li>
                     </ul>
                 </div>
                 <div class="navRight">
@@ -45,30 +45,31 @@
                 </div>
             </nav>
         </header>
-        <br>
-        <div class="container">
-				<h1 class="display">Spotify Playing</h1>
-				<p class="texto"> I listen to lots of music and I like to share it with others :)</p>
-				<br>
-				<div class="row cool-a">
-					<div class="col-2 hideonmobile">
-					</div>
-					<div class="col-4">
-						{% autoescape false %}
-						{{ xdimage }}
-						{% endautoescape %}
-					</div>
-					<div class="col-5">
-						{% autoescape false %}
-						{{ texto }}
-						{% endautoescape %}
-					</div>
+		<div class="container">
+			<h2 class="display"><a class="texto" style="text-decoration:none;" href="{{ url_for('blog') }}"> << Back to Blog </a></h2>
+			<div class="row">
+				<div class="col-8">
+					<p class="blogInfo">{{date}}; {{readtime}}</p>
+					<p class="blogTitle">{{title}}</p>
+					{% include blogo %}
 				</div>
-        </div>
-    </div>
-    <script src="static/JS/script.js"></script>
-    <footer class="cool-a">
+				<div class="col-1 hideonmobile"></div>
+				<div class="col-3 hideonmobile">
+					<div class="leftRule">
+						<h4 class="display2">Table of Contents</h4>
+						<ul id="toc" class="toc cool-a"></ul>
+						<h4 class="display2">#Tags</h4>
+						{% for tagItem in tags %}
+						<li class="inlineblock button4 button-small button-mobile">{{ tagItem }}</li>
+						{% endfor %}
+					</div>
+				<div>
+			</div>
+		</div>
+	</div>
+	<script src="{{ url_for('static', filename='JS/script.js') }}"></script>
+	<footer class="cool-a">
         2023 © Vinayak Pandey (<a href="https://github.com/VintellX">VintellX</a>) ; my <a href="https://github.com/VintellX/VintellX.github.io">code</a> is free to use with attributes.
-    </footer>
+	</footer>
 </body>
 </html>

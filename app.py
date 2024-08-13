@@ -3,6 +3,7 @@
 
 from flask import Flask, render_template, request, redirect, url_for, flash, session, Blueprint
 from xdspotify import Vinify
+from blogo import *
 import json
 
 app = Flask(__name__)
@@ -12,6 +13,33 @@ app = Flask(__name__)
 @app.route('/about')
 def index():
     return render_template('index.html')
+
+@app.route('/blog')
+def blog():
+    blogs = load_blogs()
+    tags = tags_count()
+    return render_template('blog.html', blogs=blogs, tags=tags)
+
+@app.route('/blog/<blog_id>')
+def blogo(blog_id):
+    blogs=load_blogs()
+    for blog in blogs:
+        if blog['id'] == blog_id:
+           title = blog['title']
+           date = blog['info']['date']
+           readtime = blog['info']['readtime']
+           tags = [tag for tag in blog['info']['tags']]
+    templato = f'blogo/{blog_id}.html'
+    return render_template('blogbase.html', blogo=templato, title=title, date=date, readtime=readtime, tags=tags)
+
+@app.route('/blog/tags/<tag>')
+def blogTag(tag):
+    blogs = load_blogs()
+    tags = tags_count()
+    tagged_blogs = [blog for blog in blogs if tag in blog['info']['tags']]
+    totalblogs = len(tagged_blogs)
+    return render_template('blogtag.html', blogs=tagged_blogs, tags=tags, tagItem=tag, totalblogs=totalblogs)
+
 
 @app.route('/pubkey')
 def pubkey():

@@ -10,16 +10,16 @@
     <div class="main" id="main">
         <header>
             <nav class="navbar">
-                <a class="vintellx" href="index.html">VintellX</a>
-				<div class="navMiddle">
+                <a class="vintellx" href="{{ url_for('index') }}">VintellX</a>
+                <div class="navMiddle">
                     <ul class="navMenu">
-                        <li class="navItem"><a href="index">About Me</a></li>
-                        <li class="navItem"><a href="projects">Projects</a></li>
-                        <li class="navItem active"><a href="pubkey">Public Key</a></li>
-                        <li class="navItem"><a href="blog">Blog</a></li>
-                        <li class="navItem"><a href="spotify">Spotify</a></li>
+                        <li class="navItem"><a href="{{ url_for('index') }}">About Me</a></li>
+                        <li class="navItem"><a href="{{ url_for('projects') }}">Projects</a></li>
+                        <li class="navItem active"><a href="{{ url_for('pubkey') }}">Pub Key</a></li>
+                        <li class="navItem"><a href="{{ url_for('blog') }}">Blog</a></li>
+                        <li class="navItem"><a href="{{ url_for('spotify') }}">Spotify</a></li>
                     </ul>
-				</div>
+                </div>
                 <div class="navRight">
                     <button id="dark-mode-toggle" class="themeToggle" aria-label="Toggle Theme">
                         <svg id="light-mode" class="hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -49,15 +49,15 @@
 		<div class="container">
 			<h3 class="display"> GPG Public Key </h3>
 			<p class="texto">I usually sign my commits and emails with this key. You can download it from the links below or view it here.</p>
-			<p class="texto gpgtexto"> <a href="static/assets/pubkey/VintellX_pubkey.asc" >[Download asc file]</a> <a href="static/assets/pubkey/VintellX_pubkey.gpg" >[Download gpg file]</a> </p>
+			<p class="texto gpgtexto cool-a"> <a href="static/assets/pubkey/VintellX-PubKey.asc" >[Download asc file]</a> <a href="static/assets/pubkey/VintellX-PubKey.gpg" >[Download gpg file]</a> </p>
 			<div class="row">
 				<div class="col-5">
-					<embed src="static/assets/pubkey/VintellX_pubkey.txt" type="text/plain" width="100%" height="700">
+					<embed src="static/assets/pubkey/VintellX-PubKey.txt" type="text/plain" width="100%" height="700">
 				</div>
 		</div>
     </div>
     <script src="static/JS/script.js"></script>
-    <footer>
+    <footer class="cool-a">
         2023 © Vinayak Pandey (<a href="https://github.com/VintellX">VintellX</a>) ; my <a href="https://github.com/VintellX/VintellX.github.io">code</a> is free to use with attributes.
     </footer>
 </body>

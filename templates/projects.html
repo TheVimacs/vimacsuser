@@ -10,16 +10,16 @@
     <div class="main" id="main">
         <header>
             <nav class="navbar">
-                <a class="vintellx" href="index.html">VintellX</a>
-				<div class="navMiddle">
+                <a class="vintellx" href="{{ url_for('index') }}">VintellX</a>
+                <div class="navMiddle">
                     <ul class="navMenu">
-                        <li class="navItem"><a href="index">About Me</a></li>
-                        <li class="navItem active"><a href="projects">Projects</a></li>
-                        <li class="navItem"><a href="pubkey">Public Key</a></li>
-                        <li class="navItem"><a href="blog">Blog</a></li>
-                        <li class="navItem"><a href="spotify">Spotify</a></li>
+                        <li class="navItem"><a href="{{ url_for('index') }}">About Me</a></li>
+                        <li class="navItem active"><a href="{{ url_for('projects') }}">Projects</a></li>
+                        <li class="navItem"><a href="{{ url_for('pubkey') }}">Pub Key</a></li>
+                        <li class="navItem"><a href="{{ url_for('blog') }}">Blog</a></li>
+                        <li class="navItem"><a href="{{ url_for('spotify') }}">Spotify</a></li>
                     </ul>
-				</div>
+                </div>
                 <div class="navRight">
                     <button id="dark-mode-toggle" class="themeToggle" aria-label="Toggle Theme">
                         <svg id="light-mode" class="hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -49,12 +49,12 @@
 		<div class="container">
 			<h3 class="display"> My Projects </h3>
 			<div class="row">
-				<div class="col-7">
+				<div class="col-8">
 					<ol>
 						{% for project in projects %}
-						<li class="proj-li"> <p class="project-title"><b> {{ project.title }} </b></p>
+						<li class="proj-li"> <p class="project-title cool-a"> {{ project.title }} </p>
 							<p class="project-desc"><i> {{ project.description }} </i></p>
-							<p class="project-links">
+							<p class="project-links cool-a">
 								{% if project.links.youtube %}
 								[<a href="{{ project.links.youtube }}">Youtube</a>]
 								{% else %}
@@ -75,22 +75,25 @@
 						{% endfor %}
 					</ol>
 				</div>
-				<div class="col-2 hideonmobile">
+				<div class="col-1 hideonmobile">
 				</div>
 				<div class="col-3">
-					<h4 class="display1"> Total {{ total }} links present </h4>
-					<p>
-						<ul class='btn-ul'>
-							<li class="button2 button-medium button-mobile btn-color2"> YouTube {{ youtube }} </li>
-							<li class="button2 button-medium button-mobile btn-color2"> Web {{ web }} </li>
-							<li class="button2 button-medium button-mobile btn-color2"> Github {{ github }} </li>
-						</ul>
-					</p>
+					<div class="leftRule">
+						<h4 class="display1"> Total {{ total }} links present </h4>
+						<p>
+							<ul class='btn-ul'>
+								<li class="button2 button-medium button-mobile btn-color2"> YouTube {{ youtube }} </li>
+								<li class="button2 button-medium button-mobile btn-color2"> Web {{ web }} </li>
+								<li class="button2 button-medium button-mobile btn-color2"> Github {{ github }} </li>
+							</ul>
+						</p>
+					</div>
+				</div>
 			</div>
 		</div>
     </div>
     <script src="static/JS/script.js"></script>
-    <footer>
+    <footer class="cool-a" class="cool-a">
         2023 © Vinayak Pandey (<a href="https://github.com/VintellX">VintellX</a>) ; my <a href="https://github.com/VintellX/VintellX.github.io">code</a> is free to use with attributes.
     </footer>
 </body>

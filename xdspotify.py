@@ -93,7 +93,7 @@ class Vinify:
         <br><br><br><h3 class="nosong"><b>Vin</b> ain't listening to anything :(</h3>
         """ 
         episode = """
-        <br><br><br><h3 class="nosong"><b>Vin</b> is listening to podcasts :/</h3>
+        <br><br><br><h3 class="nosong"><b>Vin</b> is listening to podcasts ;)</h3>
         """ 
         xdimage = """<img src="static/assets/xdimg.png" alt="Spotify Playing" width="200" height="200">"""
         xd = self.fetchplaying()
