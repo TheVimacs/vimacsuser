@@ -1,7 +1,16 @@
 [
   {
+    "title": "VeriVoice: Enhanced Audio Deepfake Detection with Depthwise Frequency Convolutions",
+    "description": "Implementations of a Graph-Enhanced Audio Transformer for detecting deepfake audio. This project includes a novel approach using depthwise frequency convolutions to enhance the model's performance.",
+    "links": {
+      "web": null,
+      "github": "https://github.com/VintellX/VeriVoice",
+	  "youtube": null
+    }
+  },
+  {
     "title": "Gesture2Text: An image processing approach using LSTM and CNN",
-    "description": "Me and my teammates developed LSTM and CNN models to convert American Sign Language gestures to text, comparing their performance to highlight LSTMs' strength with small datasets and CNNs' with larger ones. This work is part of our book chapter on image processing.",
+    "description": "My teammates and I developed LSTM and CNN models to translate American Sign Language gestures into text. We analyzed and compared their performance, highlighting the effectiveness of LSTMs on smaller datasets and CNNs on larger ones.",
     "links": {
       "web": null,
       "github": "https://github.com/VintellX/Gesture2Text",
