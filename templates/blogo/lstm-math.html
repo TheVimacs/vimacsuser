@@ -62,9 +62,11 @@ x_t\in\mathbb{R}^n,\qquad h_t,c_t\in\mathbb{R}^d,
 $$
 and therefore
 $$
-W_i,W_f,W_c,W_o\in\mathbb{R}^{d\times n},\quad
-U_i,U_f,U_c,U_o\in\mathbb{R}^{d\times d},\quad
-b_i,b_f,b_c,b_o\in\mathbb{R}^d.
+\begin{aligned}
+W_i,W_f,W_c,W_o\in\mathbb{R}^{d\times n},\\
+U_i,U_f,U_c,U_o\in\mathbb{R}^{d\times d},\\
+b_i,b_f,b_c,b_o\in\mathbb{R}^d
+\end{aligned}
 $$
 the gate and state vectors \(i_t,f_t,o_t,\tilde c_t,c_t,h_t\) are all in \(\mathbb{R}^d\), which means that the operations on them are clear. Lastly, you need to set the initial states \(h_0\) and \(c_0\), which are usually set to zero.<br><br>
 Note: You can stack these into a single matrix \(W\in\mathbb{R}^{4d\times (n+d)}\) if you want, but it's usually easier to keep them separate. The forward equations are the same as the standard LSTM formulation; below I give intuition by showing how to compute the transforms via stacking. :)<br><b>stacked implementation (efficient form):</b>
@@ -73,7 +75,7 @@ $$
 W_x &= \begin{bmatrix}W_i\\[4pt]W_f\\[4pt]W_c\\[4pt]W_o\end{bmatrix}\in\mathbb{R}^{4d\times n}, \qquad
 W_h = \begin{bmatrix}U_i\\[4pt]U_f\\[4pt]U_c\\[4pt]U_o\end{bmatrix}\in\mathbb{R}^{4d\times d},\\[6pt]
 W &= \big[\,W_x \;\; W_h\,\big]\in\mathbb{R}^{4d\times (n+d)}, \qquad
-b=\begin{bmatrix}b_i\\[4pt]b_f\\[4pt]b_c\\[4pt]b_o\end{bmatrix}\in\mathbb{R}^{4d}.
+b=\begin{bmatrix}b_i\\[4pt]b_f\\[4pt]b_c\\[4pt]b_o\end{bmatrix}\in\mathbb{R}^{4d}
 \end{aligned}
 $$
 For the concatenated input \(\;\hat{x}_t=\begin{bmatrix}x_t\\[4pt]h_{t-1}\end{bmatrix}\in\mathbb{R}^{n+d}\;\) compute
@@ -83,7 +85,7 @@ $$
 
 and then slice and apply activations:
 $$
-i_t=\sigma(z_{i_t}),\quad f_t=\sigma(z_{f_t}),\quad \tilde c_t=\tanh(z_{c_t}),\quad o_t=\sigma(z_{o_t}).
+i_t=\sigma(z_{i_t}); f_t=\sigma(z_{f_t}); \tilde c_t=\tanh(z_{c_t}); o_t=\sigma(z_{o_t})
 $$
 To keep things simple, I'll keep weight matrices separated in the blog ;)
 </p>
@@ -108,8 +110,8 @@ Here,<br>\(W_*\) transforms the input into each gate’s computation space (inpu
 <p class="texto blogTexto">
 The actual gate values are obtained by passing the pre-activation values through activation functions:
 $$
-i_t = \sigma(\hat{i}_t), \quad f_t = \sigma(\hat{f}_t), \quad
-\tilde{c}_t = \tanh(\hat{\tilde{c}}_t), \quad o_t = \sigma(\hat{o}_t).
+i_t = \sigma(\hat{i}_t); f_t = \sigma(\hat{f}_t);
+\tilde{c}_t = \tanh(\hat{\tilde{c}}_t); o_t = \sigma(\hat{o}_t)
 $$
 The sigmoid outputs \(i_t, f_t, o_t\) take values in the range \((0,1)\) and control the flow of information/content. The \(\tanh\) output \(\tilde{c}_t\) takes values in \((-1,1)\) and represents the candidate content for the cell state.
 </p>
@@ -259,10 +261,11 @@ $$
 \delta c_t \;{+}{=}\; \delta h_t \odot o_t \odot \bigl(1-\tanh^2(c_t)\bigr)
 $$4. From the cell update compute:
 $$
-\delta i_t \;=\; \delta c_t \odot \tilde c_t,\qquad
-\delta f_t \;=\; \delta c_t \odot c_{t-1},\qquad
+\begin{aligned}
+\delta i_t \;=\; \delta c_t \odot \tilde c_t,\\
+\delta f_t \;=\; \delta c_t \odot c_{t-1},\\
 \delta \tilde c_t \;=\; \delta c_t \odot i_t
-$$5. Push through activation derivatives to get \(\delta\;\hat{\cdot}_t\) as in 2.2.3.<br>6. Accumulate parameter gradients \(\partial L/\partial W_v,\ \partial L/\partial U_v,\ \partial L/\partial b_v\) as in 2.2.4.<br>7. Accumulate \(\partial L/\partial h_{t-1}\) and \(\partial L/\partial x_t\) as in 2.2.5.<br>8. Propagate cell gradient back in time:
+\end{aligned}$$5. Push through activation derivatives to get \(\delta\;\hat{\cdot}_t\) as in 2.2.3.<br>6. Accumulate parameter gradients \(\partial L/\partial W_v,\ \partial L/\partial U_v,\ \partial L/\partial b_v\) as in 2.2.4.<br>7. Accumulate \(\partial L/\partial h_{t-1}\) and \(\partial L/\partial x_t\) as in 2.2.5.<br>8. Propagate cell gradient back in time:
 $$
 \delta c_{t-1} \;{+}{=} \; \delta c_t \odot f_t
 $$9. Move to \(t-1\).
