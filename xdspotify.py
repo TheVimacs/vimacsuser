@@ -4,7 +4,7 @@ import requests
 from base64 import b64encode
 import os
 
-xdimg = "assets/xd.png"
+xdimg = "static/assets/xdimg.png"
 spotifyRefreshTokeno = os.environ.get("SPOTIFY_REFRESH_TOKEN")
 currentlyPlayingURL = "https://api.spotify.com/v1/me/player/currently-playing"
 recentlyPlayedURL = "https://api.spotify.com/v1/me/player/recently-played?limit=10"
