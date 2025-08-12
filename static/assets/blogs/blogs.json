@@ -1,0 +1,12 @@
+[
+  {
+    "title": "RNNs Ghosted, LSTMs Goated: The Math Behind It",
+	"description": "This blog explains the math behind LSTMs from scratch and shows how they solve the vanishing and exploding gradient problem in vanilla RNNs. Including the intuition behind the equations along with the implementation in Python.", 
+	"id": "lstm-math",
+	"info": {
+		"date": "August 12, 2025",
+		"readtime": "15 min read",
+		"tags": ["LSTM", "Neural Networks", "Machine Learning", "Math Facts"]
+	}
+  }
+]
