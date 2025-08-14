@@ -37,20 +37,20 @@ i_t &= \sigma(W_i x_t + U_i h_{t-1} + b_i), \\
 f_t &= \sigma(W_f x_t + U_f h_{t-1} + b_f), \\
 \tilde{c}_t &= \tanh(W_c x_t + U_c h_{t-1} + b_c), \\
 c_t &= f_t \odot c_{t-1} + i_t \odot \tilde{c}_t, \\
-o_t &= \sigma(W_o x^t + U_o h_{t-1} + b_o), \\
-h_t &= o_t \odot \tanh(c_t).
+o_t &= \sigma(W_o x_t + U_o h_{t-1} + b_o), \\
+h_t &= o_t \odot \tanh(c_t)
 \end{aligned}
 $$
-
+<img src="{{ url_for('static', filename='assets/concomitant/lstm-math-fig1.png') }}" alt="Fig. 1" width="90%" height="auto"><br>
 <code>:?</code> Feeling lost? Don’t panic, it’ll all make sense soon enough. <code>(smile.png)</code>
 <br><br>
 Here \(\sigma(\cdot)\) is the sigmoid function, \(\tanh(\cdot)\) is hyperbolic tangent, and \(\odot\) denotes elementwise multiplication. 
 <br><br>
 <b>Notation & Intuition: </b><br>
-\(x_t \in \mathbb{R}^n \Rightarrow\) the <b>input vector</b> at time $t$ (e.g. a word embedding, an audio feature vector, or a scalar for a single time-series).<br>
+\(x_t \in \mathbb{R}^n \Rightarrow\) the <b>input vector</b> at time \(t\) (e.g. a word embedding, an audio feature vector, or a scalar for a single time-series).<br>
 \(h_{t-1}\in\mathbb{R}^d \Rightarrow\) the <b>previous hidden state</b> (think of it as the short-term summary the network carries forward).<br>
 \(c_{t-1}\in\mathbb{R}^d \Rightarrow\) the <b>previous cell state</b> (this is the LSTM’s long-term memory).<br>
-\(i_t,f_t,o_t,\tilde{c}_t,c_t,h_t\in\mathbb{R}^d \Rightarrow\) <b>vectors of length</b> $d$ (gates and states).<br>
+\(i_t,f_t,o_t,\tilde{c}_t,c_t,h_t\in\mathbb{R}^d \Rightarrow\) <b>vectors of length</b> \(d\) (gates and states).<br>
 \(W_*\in\mathbb{R}^{d\times n} \Rightarrow\) input-to-gate weight matrices.<br>
 \(U_*\in\mathbb{R}^{d\times d} \Rightarrow\) hidden-to-gate (recurrent) weight matrices.<br>
 <br><br>
@@ -101,7 +101,7 @@ $$
 \hat{i}_t &= W_i x_t + U_i h_{t-1} + b_i, \\
 \hat{f}_t &= W_f x_t + U_f h_{t-1} + b_f, \\
 \hat{\tilde{c}}_t &= W_c x_t + U_c h_{t-1} + b_c, \\
-\hat{o}_t &= W_o x_t + U_o h_{t-1} + b_o.
+\hat{o}_t &= W_o x_t + U_o h_{t-1} + b_o
 \end{aligned}
 $$
 Here,<br>\(W_*\) transforms the input into each gate’s computation space (input-to-gate weights).<br>\(U_*\) transforms the previous hidden state into that same space (hidden-to-gate weights).<br>\(b_*\) is the bias term that shifts the activation threshold for each gate.<br>The hats \(\hat{\cdot}\) indicate these are pre-activation values; they are computed before any non-linear function is applied.<br><br>(In code you usually compute these four linear combinations in a single matrix multiplication for efficiency; check the stacked version above for reference)
